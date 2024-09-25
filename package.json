@@ -1,0 +1,22 @@
+{
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "tsc-watch": "^6.2.0",
+    "typescript": "5.5.2"
+  },
+  "scripts": {
+    "start": "tsc --watch",
+    "watch": "tsc-watch --onSuccess \"node ./dist/index.js\"",
+    "build": "tsc",
+    "lint": "eslint --fix src"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^9.11.1",
+    "globals": "^15.9.0",
+    "typescript-eslint": "^8.7.0"
+  }
+}
