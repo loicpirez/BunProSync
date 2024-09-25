@@ -1,7 +1,16 @@
-const world = 'world';
+import dotenv from 'dotenv';
+import { requireEnvVars } from './utils';
+import Bunpro from './bunpro';
 
-export function hello(who: string = world): string {
-  return `Hello ${who}! `;
-}
+dotenv.config();
 
-console.log(hello())
+const main = async () => {
+  const requiredEnvVars = ['BUNPRO_EMAIL', 'BUNPRO_PASSWORD'];
+
+  dotenv.config();
+  requireEnvVars(requiredEnvVars);
+
+  await Bunpro.login();
+};
+
+main();
