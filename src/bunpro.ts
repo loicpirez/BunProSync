@@ -32,7 +32,7 @@ export default class Bunpro {
 
     await this.page.goto('https://bunpro.jp/ja/login', { waitUntil: 'networkidle2' });
 
-    await this.page.waitForSelector('#user_email', { visible: true });
+    await this.page.waitForSelector('#user_email', { visible: true, timeout: 30000 });
     await this.page.click('#user_email');
     await this.page.type('#user_email', this.credentials.email);
     await this.page.type('#user_password', this.credentials.password);
@@ -74,7 +74,7 @@ export default class Bunpro {
       } else {
         console.log(`[${item}] : adding item to the reviews...`);
         await this.page.click('#js-tour-learn-actions');
-        await this.page.waitForSelector('svg[data-name="ADD"]', { visible: true });
+        await this.page.waitForSelector('svg[data-name="ADD"]', { visible: true, timeout: 30000 });
         await this.page.click('svg[data-name="ADD"]');
         console.log(`[${item}] : item added to the reviews.`);
       }
