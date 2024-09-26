@@ -59,10 +59,16 @@ export default class Bunpro {
     if (!this.page) throw new Error('Page not initialized. Call init() first.');
     try {
 
-      await this.page.goto(`https://bunpro.jp/ja/vocabs/${item}`, { waitUntil: 'networkidle2' });
-      await this.page.waitForSelector('#js-tour-learn-sidebar', { visible: true });
+      const response = await this.page.goto(`https://bunpro.jp/ja/vocabs/${item}`, { waitUntil: 'networkidle2' });
+    
+      if (response?.status() === 404) {
+        console.warn(`[${item}] : Page not found (404). Skipping...`);
+        return;
+      }
+
+      await this.page.waitForSelector('#js-tour-learn-sidebar', { visible: true, timeout: 30000 });
       await this.page.click('#js-tour-learn-sidebar');
-      await this.page.waitForSelector('#js-tour-learn-actions', { visible: true, timeout: 20000 });
+      await this.page.waitForSelector('#js-tour-learn-actions', { visible: true, timeout: 30000 });
 
       const wordStatus = await this.page.evaluate(() => {
         const addToReviewButton = document.querySelector('svg[data-name="ADD"]');
