@@ -1,6 +1,6 @@
-# WKBunProSync
+# BunProSync
 
-WKBunProSync is a tool for synchronizing your progress between WaniKani and BunPro.
+BunProSync is a tool for adding words to review in BunPro.
 
 ## Environment Variables
 
@@ -9,20 +9,20 @@ To run this project, you'll need to add the following environment variables to y
 - **`BUNPRO_LOGIN`**: Your BunPro login email.
 - **`BUNPRO_PASSWORD`**: Your BunPro password.
 
-**Note**: BunPro credentials are necessary because the official API is not publicly accessible.
+**Note**: BunPro credentials are required because the official API is not publicly accessible.
 
 ## Data Requirements
 
-In addition to WaniKani, you can specify additional words by creating an `items.txt` file in the `data/` directory. This file should contain a list of Japanese words, with each word on a new line.
+Words should be specified by creating an `items.txt` file in the `data/` directory. This file should contain a list of Japanese words, with each word on a new line.
 
-### Example `items.txt` file:
+### Example of an `items.txt` file:
 
 ```plaintext
 こんにちは
 さようなら
 ```
 
-### Example `.env` File
+### Example of a `.env` file:
 
 ```plaintext
 BUNPRO_LOGIN=your_bunpro_login_email
