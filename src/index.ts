@@ -6,7 +6,7 @@ dotenv.config();
 
 const main = async () => {
   try {
-    const words = await readFileAsArray('./data/items.txt')
+    const words = await readFileAsArray('./data/items.txt');
 
     const requiredEnvVars = ['BUNPRO_EMAIL', 'BUNPRO_PASSWORD'];
     requireEnvVars(requiredEnvVars);

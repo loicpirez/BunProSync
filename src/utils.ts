@@ -2,7 +2,7 @@ import fs from 'fs';
 
 const handleError = (error: any, message: string) => {
   console.error(`${message}:`, error);
-}
+};
 
 const requireEnvVars = (vars: string[]) => {
   vars.forEach((variable) => {
@@ -22,7 +22,7 @@ const readFileAsArray = (filePath: string): Promise<string[]> => {
       resolve(lines);
     });
   });
-}
+};
 
 
 export {
